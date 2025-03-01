@@ -1,6 +1,6 @@
 import { stagger, useAnimate } from "framer-motion";
-import Title from "./components/Title";
-import { Availability, Colors, Music, SchedulingLinks, Team, Todo } from "./components/Card";
+import Details from "./components/Details";
+import { Availability, Colors, SchedulingLinks, Team, Todo } from "./components/Card";
 import useFeatureStore from "./store/store";
 import { useEscapePress } from "@/utils/use-escape-press";
 import { useHidePageOverflow } from "@/utils/toggle-page-overflow";
@@ -8,40 +8,34 @@ import { useEffect } from "react";
 
 const features = [
     {
-        title: "Use your calendar as a todo list",
+        title: "FRONT TEAM LEAD",
+        description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
         id: "todo-list",
         card: Todo,
-        // visual: OtherVisual,
     },
     {
-        title: "Color your calendar to organize",
+        title: "WEB DEVELOPER & ANALYSTe",
+        description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
         id: "colors",
         card: Colors,
-        // visual: OtherVisual,
     },
     {
-        title: "Instantly know if someone is available",
+        title: "FRONT DEVELOPER & DESIGNER",
+        description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
         id: "availability",
         card: Availability,
-        // visual: OtherVisual,
     },
     {
-        title: "Track what you listened to when",
-        id: "music",
-        card: Music,
-        // visual: MusicVisual,
-    },
-    {
-        title: "Send scheduling links guests love",
+        title: "FRONT DEVELOPER",
+        description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
         id: "scheduling-links",
         card: SchedulingLinks,
-        // visual: OtherVisual,
     },
     {
-        title: "Always know what your team is up to",
+        title: "FRONT DEVELOPER",
+        description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
         id: "team",
         card: Team,
-        // visual: OtherVisual,
     },
 ];
 
@@ -71,7 +65,7 @@ const VerticalScrollSlider = () => {
                     { duration: 0.3, delay: stagger(0.05) },
                 ],
                 [
-                    `.visual-${lastFullscreenFeature}`,
+                    // `.visual-${lastFullscreenFeature}`,
                     { opacity: 1, scale: 1, pointerEvents: "auto" },
                     { at: "<" },
                 ],
@@ -122,13 +116,17 @@ const VerticalScrollSlider = () => {
                     <ul>
                         {features.map((feature) => (
                             <li key={feature.id}>
-                                <Title id={feature.id}>{feature.title}</Title>
+                                <Details
+                                    id={feature.id}
+                                    title={feature.title}
+                                    description={feature.description}
+                                />
                             </li>
                         ))}
                     </ul>
                 </div>
                 <div className="sticky top-0 flex h-screen w-full items-center">
-                    <div className="relative aspect-square w-full rounded-2xl bg-gray-100 [&:has(>_.active-card)]:bg-transparent">
+                    <div className="relative aspect-square w-full rounded-2xl bg-zinc-800 [&:has(>_.active-card)]:bg-transparent">
                         {features.map((feature) => (
                             <feature.card id={feature.id} key={feature.id} />
                         ))}

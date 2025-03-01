@@ -4,11 +4,12 @@ import React, { useEffect, useRef } from "react";
 import useFeatureStore from "../store/store";
 
 type Props = {
-    children: React.ReactNode;
     id: string;
+    title: string;
+    description: string
 };
 
-const Title = ({ children, id }: Props) => {
+const Details = ({ title, description, id }: Props) => {
     const ref = useRef<HTMLParagraphElement>(null);
 
     const documentRef = useRef(document);
@@ -29,7 +30,7 @@ const Title = ({ children, id }: Props) => {
         // @ts-ignore
         root: documentRef,
     });
-    
+
     const setInViewFeature = useFeatureStore((state) => state.setInViewFeature);
     const inViewFeature = useFeatureStore((state) => state.inViewFeature);
 
@@ -39,16 +40,29 @@ const Title = ({ children, id }: Props) => {
     }, [isInView, id, setInViewFeature, inViewFeature]);
 
     return (
-        <p
+        <div
             ref={ref}
-            className={classNames(
-                "feature-title py-16 font-heading text-5xl transition-colors",
-                isInView ? "text-black" : "text-gray-300"
-            )}
+            className="py-16"
         >
-            {children}
-        </p>
+            <p
+                className={classNames(
+                    "feature-title pb-4 font-heading text-5xl transition-colors",
+                    isInView ? "text-white" : "text-zinc-600"
+                )}
+            >
+                {title}
+            </p>
+
+            <span
+                className={classNames(
+                    "feature-title text-xl transition-colors",
+                    isInView ? "text-zinc-400" : "text-zinc-600"
+                )}
+            >
+                {description}
+            </span>
+        </div>
     );
 };
 
-export default Title;
+export default Details;
