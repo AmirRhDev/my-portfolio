@@ -26,7 +26,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-95%"]);
 
   return (
     <section ref={targetRef} className="relative h-[1000vh]">
@@ -48,10 +48,14 @@ export default HorizontalScrollCarousel;
 const cards: CardType[] = [
   {
     id: 1,
-    children: <div>1</div>
+    children: <div>details 1</div>
   },
   {
     id: 2,
-    children: <div>2</div>
+    children: <div>details 2</div>
+  },
+  {
+    id: 3,
+    children: <div>details 3</div>
   },
 ];
