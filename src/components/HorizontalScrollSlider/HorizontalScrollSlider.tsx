@@ -19,6 +19,23 @@ import Card, { CardType } from "./Card/Card";
 //     </div>
 //   );
 // };
+const SlideOne = () => {
+  return (
+    <div className="grid grid-cols-12">
+      <div className="col-span-7 flex flex-col gap-10">
+          <h1 className="text-5xl text-white">Who Am I?</h1>
+          <p className="text-lg text-slate-100">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident error hic iste molestias itaque corrupti aliquam, molestiae harum delectus, modi deserunt tenetur, magnam blanditiis repellendus ex dignissimos necessitatibus vel quod!
+            Odio commodi reiciendis laborum dolor necessitatibus
+          </p>
+      </div>
+
+      <div className="col-span-5">
+        slm
+      </div>
+    </div>
+  )
+}
 
 const HorizontalScrollCarousel = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
@@ -26,7 +43,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["3%", "-95%"]);
 
   return (
     <section ref={targetRef} className="relative h-[1000vh]">
@@ -48,7 +65,7 @@ export default HorizontalScrollCarousel;
 const cards: CardType[] = [
   {
     id: 1,
-    children: <div>details 1</div>
+    children: <SlideOne />
   },
   {
     id: 2,
