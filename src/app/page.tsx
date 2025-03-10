@@ -6,6 +6,7 @@ import { LampContainer } from "@/components/ui/Lamp";
 import { motion } from "framer-motion";
 import Example from "@/components/HorizontalScrollSlider/HorizontalScrollSlider";
 import HorizontalScrollCarousel from "@/components/HorizontalScrollSlider/HorizontalScrollSlider";
+import HorizontalScroll from "@/components/HorizontalScrollList/HorizontalScrollList";
 
 export default function SpotlightNewDemo() {
 
@@ -48,8 +49,8 @@ export default function SpotlightNewDemo() {
                 <span>
                   Get Resume
                 </span>
-                <svg className="size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path strokeLinecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                <svg className="size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
               </div>
               <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
@@ -62,7 +63,9 @@ export default function SpotlightNewDemo() {
         <VerticalScrollSlider />
       </div>
 
-      <HorizontalScrollCarousel />
+      {/* <HorizontalScrollCarousel /> */}
+
+      <HorizontalScroll />
 
       <div className="h-[500px] text-2xl flex justify-center items-center">to be continue...</div>
     </div>
