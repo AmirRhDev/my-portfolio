@@ -21,7 +21,7 @@ export const Cobe = () => {
         api.start({ r: 10, immediate: true }); // Set initial phi to 10 without animation
         pointerInteractionMovement.current = 10 * 200; // Sync with interaction scaling
 
-        let width = 450;
+        let width = 350;
         const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth)
         window.addEventListener('resize', onResize)
         onResize()
