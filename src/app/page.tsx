@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import { Spotlight } from "@/components/ui/spotlight-new";
 import VerticalScrollSlider from "@/components/VerticalScrollSlider/VerticalScrollSlider";
 import { LampContainer } from "@/components/ui/Lamp";
 import { motion } from "framer-motion";
 import Example from "@/components/HorizontalScrollSlider/HorizontalScrollSlider";
 import HorizontalScrollCarousel from "@/components/HorizontalScrollSlider/HorizontalScrollSlider";
 import HorizontalScroll from "@/components/HorizontalScrollList/HorizontalScrollList";
+import ZoomImageParallax from "@/components/ZoomImageParallax/ZoomImageParallax";
 
 export default function SpotlightNewDemo() {
 
@@ -67,7 +67,8 @@ export default function SpotlightNewDemo() {
 
       <HorizontalScroll />
 
-      <div className="h-[500px] text-2xl flex justify-center items-center">to be continue...</div>
+      {/* <div className="h-[500px] text-2xl flex justify-center items-center">to be continue...</div> */}
+      <ZoomImageParallax />
     </div>
   );
 }
