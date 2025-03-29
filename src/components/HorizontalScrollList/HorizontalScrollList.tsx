@@ -116,11 +116,15 @@ export default function HorizontalScroll(): JSX.Element {
                             </div>
                         </li>
 
-                        <li className='animatedListItem h-screen w-screen border border-red-500 flex flex-col overflow-hidden items-center gap-8'>
-                            <h2 className='animatedHeader text-[10vw] text-slate-50 font-bold border'>
+                        <li className='animatedListItem h-screen w-screen border border-red-500 flex flex-col overflow-hidden items-center gap-12'>
+                            <h2 className='animatedHeader text-[10vw] text-slate-50 font-bold'>
                                 Nemidonam
                             </h2>
-                            <div className='w-3/4 border'>
+                            <div className='w-3/4 flex items-center gap-10'>
+                                <div className='flex flex-col gap-5 w-3/5'>
+                                    <h2 className='text-4xl text-white font-semibold'>may coperations, many experiences</h2>
+                                    <p className='text-slate-200'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, aliquam quam. Veniam unde earum dignissimos dolore error, eveniet, placeat doloribus incidunt explicabo itaque harum inventore accusantium corporis minima. Optio, exercitationem!</p>
+                                </div>
                                 <CardStack />
                             </div>
                         </li>
