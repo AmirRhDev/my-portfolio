@@ -1,8 +1,11 @@
+// 'use client'
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ReactLenis from "lenis/react";
 import { GeistSans } from "geist/font/sans"; //TODO: delete thisp package
+// import { useEffect } from "react";
+// import Lenis from "lenis";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +27,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  // useEffect(() => {
+  //   const lenis = new Lenis()
+
+  //   function raf(time: any) {
+  //     lenis.raf(time)
+  //     requestAnimationFrame(raf)
+  //   }
+
+  //   requestAnimationFrame(raf)
+  // }, [])
+
   return (
     <html lang="en" className={GeistSans.className}>
       <body

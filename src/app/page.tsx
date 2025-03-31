@@ -3,27 +3,13 @@ import React from "react";
 import VerticalScrollSlider from "@/components/VerticalScrollSlider/VerticalScrollSlider";
 import { LampContainer } from "@/components/ui/Lamp";
 import { motion } from "framer-motion";
-import Example from "@/components/HorizontalScrollSlider/HorizontalScrollSlider";
-import HorizontalScrollCarousel from "@/components/HorizontalScrollSlider/HorizontalScrollSlider";
-import HorizontalScroll from "@/components/HorizontalScrollList/HorizontalScrollList";
+import HorizontalScroll from "@/components/ui/HorizontalScrollList";
 import ZoomImageParallax from "@/components/ZoomImageParallax/ZoomImageParallax";
+import { CardBackHover } from "@/components/ui/CardBackHover";
 
 export default function SpotlightNewDemo() {
-
   return (
     <div>
-      {/* <div className="h-screen w-full rounded-md flex md:items-center md:justify-center bg-zinc-900 antialiased bg-grid-white/[0.02] relative overflow-hidden">
-        <Spotlight />
-        <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
-          <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-            Amir Rahimnezhad <br /> Front-End Developer
-          </h1>
-          <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
-            Passionate about building outstanding websites using the latest web technologies.
-          </p>
-        </div>
-      </div> */}
-
       <LampContainer>
         <motion.h1
           initial={{ opacity: 0.5, y: 100 }}
@@ -63,11 +49,12 @@ export default function SpotlightNewDemo() {
         <VerticalScrollSlider />
       </div>
 
-      {/* <HorizontalScrollCarousel /> */}
-
       <HorizontalScroll />
 
-      {/* <div className="h-[500px] text-2xl flex justify-center items-center">to be continue...</div> */}
+      <div className="max-w-6xl min-h-screen flex items-center mx-auto px-8 mb-40">
+        <CardBackHover />
+      </div>
+
       <ZoomImageParallax />
     </div>
   );

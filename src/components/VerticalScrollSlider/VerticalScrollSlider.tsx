@@ -6,7 +6,7 @@ import { useEscapePress } from "@/utils/use-escape-press";
 import { useHidePageOverflow } from "@/utils/toggle-page-overflow";
 import { useEffect } from "react";
 
-const features = [
+const DEFAULT_FEATURES = [
     {
         title: "FRONT TEAM LEAD",
         description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
@@ -39,7 +39,11 @@ const features = [
     },
 ];
 
-const VerticalScrollSlider = () => {
+interface Props {
+    features?: any //TODO: change type
+}
+
+const VerticalScrollSlider = ({ features = DEFAULT_FEATURES }: Props) => {
     const [scope, animate] = useAnimate();
     const fullscreenFeature = useFeatureStore((state) => state.fullscreenFeature);
     const lastFullscreenFeature = useFeatureStore(
@@ -65,7 +69,6 @@ const VerticalScrollSlider = () => {
                     { duration: 0.3, delay: stagger(0.05) },
                 ],
                 [
-                    // `.visual-${lastFullscreenFeature}`,
                     { opacity: 1, scale: 1, pointerEvents: "auto" },
                     { at: "<" },
                 ],
@@ -85,16 +88,10 @@ const VerticalScrollSlider = () => {
                     { duration: 0.3, delay: stagger(0.05) },
                 ],
                 [
-                    `.visual-${lastFullscreenFeature}`,
                     { opacity: 0, scale: 0.75, pointerEvents: "none" },
                     { at: "<" },
                 ],
                 [".active-card .gradient", { opacity: 1, scale: 1 }, { at: "<" }],
-                // [
-                //   ".back-to-site-btn",
-                //   { opacity: 0, y: "300px" },
-                //   { at: "<", duration: 0.3 },
-                // ],
                 [".active-card .show-me-btn", { opacity: 1 }],
             ]);
         }
@@ -102,19 +99,10 @@ const VerticalScrollSlider = () => {
 
     return (
         <div ref={scope}>
-            {/* {features.map((feature) => (
-      <feature.visual id={feature.id} key={feature.id} />
-    ))} */}
-            {/* <button
-      onClick={() => setFullscreenFeature(null)}
-      className="back-to-site-btn fixed bottom-6 left-1/2 z-10 -translate-x-1/2 translate-y-[300%] rounded-full bg-black px-4 py-2 text-white opacity-0 shadow-lg"
-    >
-      Back to site
-    </button> */}
             <div className="flex w-full items-start gap-20">
                 <div className="w-full py-[50vh]">
                     <ul>
-                        {features.map((feature) => (
+                        {features.map((feature: any) => ( //TODO: cahnge type
                             <li key={feature.id}>
                                 <Details
                                     id={feature.id}
@@ -127,7 +115,7 @@ const VerticalScrollSlider = () => {
                 </div>
                 <div className="sticky top-0 flex h-screen w-full items-center">
                     <div className="relative aspect-square w-full rounded-2xl bg-zinc-800 [&:has(>_.active-card)]:bg-transparent">
-                        {features.map((feature) => (
+                        {features.map((feature: any) => ( //TODO: cahnge type
                             <feature.card id={feature.id} key={feature.id} />
                         ))}
                     </div>

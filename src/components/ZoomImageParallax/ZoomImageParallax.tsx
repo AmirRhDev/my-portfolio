@@ -5,10 +5,17 @@ import Picture4 from '../../../public/images/4.jpg'
 import Picture5 from '../../../public/images/5.jpg'
 import Picture6 from '../../../public/images/6.jpg'
 import Picture7 from '../../../public/images/7.jpeg'
-import Image from 'next/image';
-import { useScroll, useTransform, motion} from 'framer-motion';
-import { useRef } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
+import { ReactElement, useRef } from 'react';
 import classNames from 'classnames';
+
+interface ItemsType {
+    src?: StaticImageData,
+    scale: MotionValue<number>,
+    className: string,
+    content?: ReactElement
+}
 
 export default function ZoomImageParallax() {
     const container = useRef(null);
@@ -23,12 +30,12 @@ export default function ZoomImageParallax() {
     const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
     const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
 
-    const pictures = [
+    const pictures: ItemsType[] = [
         {
-            src: Picture1,
+            // src: Picture1,
             scale: scale4,
             className: "w-[25vw] h-[25vh]",
-            isMain: true
+            content: <div className='border h-full'>slm dada :D</div>
         },
         {
             src: Picture2,
@@ -66,10 +73,10 @@ export default function ZoomImageParallax() {
         <div ref={container} className="h-[300vh] relative">
             <div className="sticky top-0 h-screen overflow-hidden">
                 {
-                    pictures.map( ({src, scale, className, isMain}, index) => {
-                        return <motion.div key={index} style={{scale}} className="absolute w-full h-full top-0 flex items-center justify-center">
+                    pictures.map(({ src, scale, className, content }, index) => {
+                        return <motion.div key={index} style={{ scale }} className="absolute w-full h-full top-0 flex items-center justify-center">
                             <div className={classNames('relative', className)}>
-                                <Image
+                                {src ? <Image
                                     src={src}
                                     fill
                                     // className={classNames('object-cover', {'scale-[.5]': isMain})}
@@ -77,6 +84,9 @@ export default function ZoomImageParallax() {
                                     alt="image"
                                     placeholder='blur'
                                 />
+                                    :
+                                    content
+                                }
                                 {/* <div className='border'>{className}</div> */}
                             </div>
                         </motion.div>
