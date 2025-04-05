@@ -14,7 +14,7 @@ const DEFAULT_FEATURES = [
         card: Todo,
     },
     {
-        title: "WEB DEVELOPER & ANALYSTe",
+        title: "WEB DEVELOPER & ANALYSTE",
         description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
         id: "colors",
         card: Colors,
@@ -102,7 +102,7 @@ const VerticalScrollSlider = ({ features = DEFAULT_FEATURES }: Props) => {
             <div className="flex w-full items-start gap-20">
                 <div className="w-full py-[50vh]">
                     <ul>
-                        {features.map((feature: any) => ( //TODO: cahnge type
+                        {features.map((feature: any) => ( //TODO: change type
                             <li key={feature.id}>
                                 <Details
                                     id={feature.id}
@@ -115,7 +115,7 @@ const VerticalScrollSlider = ({ features = DEFAULT_FEATURES }: Props) => {
                 </div>
                 <div className="sticky top-0 flex h-screen w-full items-center">
                     <div className="relative aspect-square w-full rounded-2xl bg-zinc-800 [&:has(>_.active-card)]:bg-transparent">
-                        {features.map((feature: any) => ( //TODO: cahnge type
+                        {features.map((feature: any) => ( //TODO: change type
                             <feature.card id={feature.id} key={feature.id} />
                         ))}
                     </div>

@@ -7,41 +7,46 @@ import { useState } from "react";
 export const DEFAULT_ITEMS = [
     {
         title: "Narona",
-        description: "A platform to manage coffee shop's and restaurant's ",
+        description: "A platform to manage coffee shop's and restaurant's",
         cardClass: "col-span-2",
         demoUrl: "https://narona.pw/"
     },
     {
-        title: "Netflix",
-        description:
-            "asdasd.",
+        title: "Maham gostar",
+        description: "An IT company that provides services such as website design and various systems",
+        demoUrl: "https://mahamgostar.com/"
     },
     {
-        title: "Google",
-        description:
-            "A multinational technology company that specializes in Internet-related services and products.",
+        title: "Enterprise Resource Planning",
+        description: "An ERP system to streamline business operations across various departments",
     },
     {
-        title: "Meta",
-        description:
-            "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
+        title: "Real estate union",
+        description: "A web platform for managing real estate union operations",
+        demoUrl: "https://etehadiye.tarahanco.com"
     },
     {
-        title: "Amazon",
-        description:
-            "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+        title: "Clinic management system",
+        description: "A web system for managing patient care processes.",
+        demoUrl: "https://clinic.tarahanco.com"
     },
     {
-        title: "Microsoft",
-        description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+        title: "Fan Agin",
+        description: "A three-day static website for Fan Agin company :D",
+        demoUrl: "https://fanagin.ir"
     },
     {
-        title: "Stripe",
-        description:
-            "A technology company that builds economic infrastructure for the internet.",
-        cardClass: "col-span-2"
+        title: "Shora yar (Official Automation)",
+        description: "Official Automation is a web-based solution designed to streamline administrative processes for councils and governmental organizations",
+        cardClass: "col-span-2",
+        demoUrl: "https://automation.tarahanco.com"
     },
+    {
+        title: "Customer Relationship Management",
+        description: "A CRM system to enhance customer engagement and streamline communication",
+        cardClass: "col-span-3",
+    },
+
 ];
 
 export const CardBackHover = ({
@@ -95,12 +100,16 @@ export const CardBackHover = ({
                             <Link
                                 target="_blank"
                                 href={item.demoUrl}
-                                className="border-none outline-none ring-0 rounded-xl inline-flex items-center justify-center gap-3 bg-cyan-600 hover:bg-cyan-700 cursor-pointer text-white text-sm px-3 py-1"
+                                className="border-none outline-none ring-0 rounded-3xl inline-flex items-center justify-center gap-1.5 bg-cyan-600 hover:bg-cyan-700 cursor-pointer text-white text-xs font-semibold px-3 py-2"
                             >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="size-4">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
                                 Preview
                             </Link>
                         </div> :
-                            <p>unavaiable</p>
+                            <p className="text-xs text-orange-400">unavailable for privacy reason</p>
                         }
                     </Card>
                 </div>
