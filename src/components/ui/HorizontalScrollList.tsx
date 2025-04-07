@@ -1,7 +1,7 @@
 // @ts-nocheck
 'use client';
 import Image from 'next/image';
-import { JSX, useEffect, useRef } from 'react';
+import { Fragment, JSX, useEffect, useRef } from 'react';
 import { animate, scroll, spring } from 'motion';
 import { ReactLenis } from 'lenis/react';
 import { Cobe } from './Cobe';
@@ -15,6 +15,7 @@ interface slidesType {
 
 const DEFAULT_SLIDES: slidesType[] = [
     {
+        id: 0,
         content: <li className='animatedListItem h-screen w-screen flex flex-col overflow-hidden items-center gap-8'>
             <h2 className='animatedHeader text-[10vw] text-slate-50 font-bold'>
                 Who Am I
@@ -32,6 +33,7 @@ const DEFAULT_SLIDES: slidesType[] = [
         </li>
     },
     {
+        id: 1,
         content: <li className='animatedListItem h-screen w-screen flex flex-col overflow-hidden items-center gap-8'>
             <h2 className='animatedHeader text-[10vw] text-slate-50 font-bold'>
                 About Me
@@ -88,14 +90,15 @@ const DEFAULT_SLIDES: slidesType[] = [
         </li>
     },
     {
+        id: 2,
         content: <li className='animatedListItem h-screen w-screen flex flex-col overflow-hidden items-center gap-12'>
             <h2 className='animatedHeader text-[10vw] text-slate-50 font-bold'>
-                Nemidonam
+                Collaborations
             </h2>
             <div className='w-3/4 flex items-center gap-10'>
                 <div className='flex flex-col gap-5 w-3/5'>
-                    <h2 className='text-4xl text-white font-semibold'>may coperations, many experiences</h2>
-                    <p className='text-slate-200'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, aliquam quam. Veniam unde earum dignissimos dolore error, eveniet, placeat doloribus incidunt explicabo itaque harum inventore accusantium corporis minima. Optio, exercitationem!</p>
+                    <h2 className='text-4xl text-white font-semibold'>Together we're stronger</h2>
+                    <p className='text-slate-200'>I take pride in collaborating with expert individuals and teams, and I thoroughly enjoy team-based work.</p>
                 </div>
                 <CardStack />
             </div>
@@ -145,7 +148,7 @@ export default function HorizontalScroll({ slides = DEFAULT_SLIDES }: Props): JS
         <>
             <article>
                 {/* TODO: change header */}
-                <header className='text-white relative  w-full bg-slate-950  grid place-content-center h-[80vh]'> 
+                <header className='text-white relative  w-full bg-slate-950  grid place-content-center h-[80vh]'>
                     <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
 
                     <h1 className='text-6xl font-bold text-center tracking-tight'>
@@ -156,7 +159,7 @@ export default function HorizontalScroll({ slides = DEFAULT_SLIDES }: Props): JS
 
                 <section className='h-[500vh] relative'>
                     <ul ref={ulRef} className='flex sticky top-0'>
-                        {slides.map((item: slidesType) => item.content)}
+                        {slides.map((item: slidesType) => <Fragment key={item.id}>{item.content}</Fragment>)}
                     </ul>
                 </section>
             </article>

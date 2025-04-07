@@ -43,7 +43,7 @@ const FeatureCard = ({ gradient, children, id }: FeatureCardProps) => {
   );
 };
 
-export const Todo = ({ id }: CardProps) => {
+export const FanAgin = ({ id }: CardProps) => {
   return (
     <FeatureCard id={id} gradient="from-[#f7f0ff] to-[#a78afe]">
       <span />

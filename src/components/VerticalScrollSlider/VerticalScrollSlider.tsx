@@ -1,6 +1,6 @@
 import { stagger, useAnimate } from "framer-motion";
 import Details from "./components/Details";
-import { Availability, Colors, SchedulingLinks, Team, Todo } from "./components/Card";
+import { Availability, Colors, SchedulingLinks, Team, FanAgin } from "./components/Card";
 import useFeatureStore from "./store/store";
 import { useEscapePress } from "@/utils/use-escape-press";
 import { useHidePageOverflow } from "@/utils/toggle-page-overflow";
@@ -11,7 +11,7 @@ const DEFAULT_FEATURES = [
         title: "FRONT TEAM LEAD",
         description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
         id: "todo-list",
-        card: Todo,
+        card: FanAgin,
     },
     {
         title: "WEB DEVELOPER & ANALYSTE",
