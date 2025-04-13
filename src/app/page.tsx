@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import HorizontalScroll from "@/components/ui/HorizontalScrollList";
 import ZoomImageParallax from "@/components/ZoomImageParallax/ZoomImageParallax";
 import { CardBackHover } from "@/components/ui/CardBackHover";
+import "@radix-ui/themes/styles.css";
 
 export default function SpotlightNewDemo() {
   return (

@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Image, { StaticImageData } from "next/image";
 
 import collab1 from "../../../public/images/collab1.jpeg";
+import collab2 from "../../../public/images/collab2.jpeg";
 
 let interval: any;
 
@@ -11,7 +12,7 @@ type Card = {
   id: number;
   name: string;
   designation: string;
-  src: StaticImageData
+  src?: StaticImageData
   content: React.ReactNode;
 };
 
@@ -29,32 +30,38 @@ const CARDS = [
   },
   {
     id: 1,
-    name: "Elon Musk",
-    designation: "Senior Shitposter",
+    name: "Hamid Mousavi",
+    designation: "Founder of Tarahan Shomal",
+    src: collab2,
     content: (
-      <p>
-        I dont like this Twitter thing,{" "}
-        because yolo. Instead, I
-        would like to call it X.com so that it can easily
-        be confused with adult sites.
+      <p className="text-sm">
+        AmirHosein Rahimnezhad is a talented and creative front-end developer at Tarahan Shomal. He delivers clean, efficient code and always looks for better solutions to improve performance. AmirHosein works well in a team, communicates effectively, and has a flexible, professional attitude. He’s a valuable asset to any development team.
       </p>
     ),
   },
-  {
-    id: 2,
-    name: "Tyler Durden",
-    designation: "Manager Project Mayhem",
-    content: (
-      <p>
-        The first rule of
-        is that you do not talk about fight
-        club. The second rule of
-        is that you DO NOT TALK about fight
-        club.
-      </p>
-    ),
-  },
+  // {
+  //   id: 2,
+  //   name: "Tyler Durden",
+  //   designation: "Manager Project Mayhem",
+  //   content: (
+  //     <p>
+  //       The first rule of
+  //       is that you do not talk about fight
+  //       club. The second rule of
+  //       is that you DO NOT TALK about fight
+  //       club.
+  //     </p>
+  //   ),
+  // },
 ];
+
+// I’ve had the pleasure of working with AmirHosein Rahimnezhad at Tarahan Shomal, where he has been a valuable part of our front-end development team.
+
+// AmirHosein is a highly skilled and creative developer who consistently brings fresh ideas and innovative solutions to our projects. He works efficiently and always strives to improve performance by exploring new technologies and better approaches. Writing clean, maintainable code is a priority for him, and it truly shows in his work.
+
+// One of his standout qualities is his strong teamwork and communication skills. He collaborates seamlessly with others, contributes positively to team dynamics, and is always open to feedback. His flexibility and professional attitude make him a pleasure to work with.
+
+// I confidently recommend AmirHosein to any team looking for a talented and reliable front-end developer. He would be a strong asset to any organization.
 
 export const CardStack = ({
   items = CARDS,
@@ -78,11 +85,11 @@ export const CardStack = ({
   const startFlipping = () => {
     interval = setInterval(() => {
       setCards((prevCards: Card[]) => {
-        const newArray = [...prevCards]; // create a copy of the array
-        newArray.unshift(newArray.pop()!); // move the last element to the front
+        const newArray = [...prevCards]; 
+        newArray.unshift(newArray.pop()!);
         return newArray;
       });
-    }, 500000);
+    }, 4000);
   };
 
   return (
@@ -97,8 +104,8 @@ export const CardStack = ({
             }}
             animate={{
               top: index * -CARD_OFFSET,
-              scale: 1 - index * SCALE_FACTOR, // decrease scale for cards that are behind
-              zIndex: cards.length - index, //  decrease z-index for the cards that are behind
+              scale: 1 - index * SCALE_FACTOR, 
+              zIndex: cards.length - index,
             }}
           >
             <div className="font-normal text-slate-200">
@@ -106,7 +113,7 @@ export const CardStack = ({
             </div>
             <div className="flex gap-3">
               <Image
-                src={card.src}
+                src={card.src || ''}
                 width={45}
                 height={45}
                 alt="someone"

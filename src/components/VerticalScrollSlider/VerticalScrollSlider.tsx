@@ -1,42 +1,56 @@
 import { stagger, useAnimate } from "framer-motion";
 import Details from "./components/Details";
-import { Availability, Colors, SchedulingLinks, Team, FanAgin } from "./components/Card";
+import FeatureCard from "./components/Card";
 import useFeatureStore from "./store/store";
 import { useEscapePress } from "@/utils/use-escape-press";
 import { useHidePageOverflow } from "@/utils/toggle-page-overflow";
 import { useEffect } from "react";
+import ReactIcon from "../icons/ReactIcon";
+import JavascriptIcon from "../icons/JavascriptIcon";
 
 const DEFAULT_FEATURES = [
     {
-        title: "FRONT TEAM LEAD",
+        id: "fanagin",
+        title: "FRONTEND TEAM LEAD",
+        stacks: [ReactIcon, JavascriptIcon],
+        compName: "Fanagin",
+        duration: "Jun 2023 - Present",
         description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
-        id: "todo-list",
-        card: FanAgin,
+        location: "Tehran Province, Iran"
     },
     {
+        id: "tarahanshomal",
         title: "WEB DEVELOPER & ANALYSTE",
-        description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
-        id: "colors",
-        card: Colors,
+        stacks: [ReactIcon, JavascriptIcon],
+        compName: "Tarahan Shomal",
+        duration: "May 2020 - Jun 2023",
+        description: "Developed secure local management projects aligned with industry standards.Led business analysis and designed responsive, mobile-like views to enhance user experience and meet client goals.",
+        location: "Mazandaran Province, Iran"
     },
     {
+        id: "satrika",
         title: "FRONT DEVELOPER & DESIGNER",
-        description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
-        id: "availability",
-        card: Availability,
+        stacks: [ReactIcon, JavascriptIcon],
+        compName: "Satrika",
+        duration: "Aug 2021 - Oct 2022",
+        description: "Designed web pages in Adobe XD, ensuring smooth handoff to development. Applied responsive design to optimize user experience on all devices. Used Tailwind and SASS for clean, scalable styling.",
+        location: "Mazandaran Province, Iran"
     },
     {
+        id: "oritco",
         title: "FRONT DEVELOPER",
-        description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
-        id: "scheduling-links",
-        card: SchedulingLinks,
+        stacks: [ReactIcon, JavascriptIcon],
+        compName: "Oritco",
+        duration: "Mar 2020 - Jul 2021",
+        description: "Streamlined front- and back-end integration for efficient development. Built responsive websites with CSS, Bootstrap, and JavaScript. Collaborated on project planning and business analysis.",
+        location: "Mazandaran Province, Iran"
     },
-    {
-        title: "FRONT DEVELOPER",
-        description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
-        id: "team",
-        card: Team,
-    },
+    // {
+    //     title: "FRONT DEVELOPER",
+    //     description: "Led the front-end development team- Collaborated with product managers to define project scope and Mentored junior developers, providing guidance on best practices and fostering a collaborative learning environment",
+    //     id: "team",
+    //     card: Team,
+    // },
 ];
 
 interface Props {
@@ -107,7 +121,7 @@ const VerticalScrollSlider = ({ features = DEFAULT_FEATURES }: Props) => {
                                 <Details
                                     id={feature.id}
                                     title={feature.title}
-                                    description={feature.description}
+                                    // description={feature.description}
                                 />
                             </li>
                         ))}
@@ -116,7 +130,7 @@ const VerticalScrollSlider = ({ features = DEFAULT_FEATURES }: Props) => {
                 <div className="sticky top-0 flex h-screen w-full items-center">
                     <div className="relative aspect-square w-full rounded-2xl bg-zinc-800 [&:has(>_.active-card)]:bg-transparent">
                         {features.map((feature: any) => ( //TODO: change type
-                            <feature.card id={feature.id} key={feature.id} />
+                            <FeatureCard feature={feature} key={feature.id} />
                         ))}
                     </div>
                 </div>

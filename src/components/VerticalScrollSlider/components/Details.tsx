@@ -6,10 +6,10 @@ import useFeatureStore from "../store/store";
 type Props = {
     id: string;
     title: string;
-    description: string
+    // description: string
 };
 
-const Details = ({ title, description, id }: Props) => {
+const Details = ({ title, id }: Props) => {
     const ref = useRef<HTMLParagraphElement>(null);
 
     const documentRef = useRef(document);
@@ -53,14 +53,14 @@ const Details = ({ title, description, id }: Props) => {
                 {title}
             </p>
 
-            <span
+            {/* <span
                 className={classNames(
                     "feature-title text-xl transition-colors",
                     isInView ? "text-zinc-400" : "text-zinc-600"
                 )}
             >
                 {description}
-            </span>
+            </span> */}
         </div>
     );
 };
